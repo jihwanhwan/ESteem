@@ -1,0 +1,1370 @@
+@charset "utf-8";
+
+/* 햄버거 */
+#hamburger{
+    display: none;
+}
+.sidebar{
+    display: none;
+}
+#wrap{
+    overflow: hidden;
+}
+/* 공통영역 */
+.container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 배너 */
+.banner{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.header-area{
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 9999;
+    padding: 0 160px;
+
+    transition: 0.5s;
+}
+
+.header-area.active{
+    background-color: rgba(255, 255, 255, 0.95);
+}
+.header-area .header-logo{
+    width: 150px;
+    height: 60px;
+}
+
+.header-area .header-logo svg{
+    fill: #fff;
+}
+.header-area .header-logo svg.active{
+    fill: #191919;
+}
+
+.header-area .header-menu .menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.header-area .header-menu .menu li{
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.header-area .header-menu .menu li.active{
+    color: #191919;
+}
+
+/* 배너영상 */
+.banner .bannerBG{
+    width: 100%;
+    height: 100vh;
+    
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* 배너텍스트 */
+.banner .banner-txt{
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translate(0%,-50%);
+}
+
+.banner .banner-txt .b-txt{
+    font-size: 6.25rem;
+    color: #fff;
+}
+
+/* 배너스크롤 */
+.banner .banner-scroll{
+    display: block;
+    position: absolute;
+    bottom: 5.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.6rem;
+    height: 3.5rem;
+    border: 2px solid #fff;
+    border-radius: 4rem;
+    background: rgba(255, 255, 255, 0.20);
+    z-index: 10;
+    
+}
+
+.banner .banner-scroll .wheel{
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all .3s;
+    transform: translateX(-50%);
+    animation: scrollWheel 2.5s linear infinite;
+    
+}
+
+@keyframes scrollWheel {
+    68% {
+        top: 20%;
+        height: 4px;
+    }
+    76% {
+        top: 20%;
+        height: 8px;
+    }
+    84%,
+    92% {
+        top: 70%;
+        height: 4px;
+    }
+}
+
+
+/* sec-1 */
+.sec-1 .container{
+    margin-top: 160px;
+    padding: 0px 160px;
+}
+.sec-1 .container .title-txt h2{
+    font-size: 7.5rem;
+    /* position: relative; */
+    color: transparent;
+    -webkit-text-stroke-width: 1px; /* 투명한 테두리 설정 */
+    -webkit-text-stroke-color: #565656;
+    display: inline-block;
+}
+.sec-1 .container .title-txt h2 span{
+    color: #191919;
+}
+/* .sec-1 .container .explain .left */
+
+.sec-1 .container .explain{
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.sec-1 .container .explain .left h3{
+    font-size: 60px;
+    /* color: transparent;
+    -webkit-text-stroke-width: 1px; /* 투명한 테두리 설정 */
+    -webkit-text-stroke-color: #565656
+}
+.sec-1 .container .explain .left h3 span{
+    display: block;
+    color: transparent;
+    -webkit-text-stroke-width: 1px; /* 투명한 테두리 설정 */
+    -webkit-text-stroke-color: #565656;
+}
+
+.sec-1 .container .explain .left h3 span:last-child{
+    color: #191919;
+}
+
+.sec-1 .container .explain .right{
+    margin-top: 77px;
+}
+.sec-1 .container .explain .right .txt{
+    line-height: 1.5;
+    font-size: 1.25rem;
+    color: #565656;
+}
+
+.sec-1 .container .explain .right .mt-txt{
+    margin-top: 40px;
+}
+.sec-1 .container .explain .right .btn-area{
+    margin-top: 60px;
+}
+.sec-1 .container .explain .right .btn-area h3{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #191919;
+}
+
+.sec-1 .container .explain .right .btn-area a{
+    display: flex;
+    align-items: end;
+}
+
+.sec-1 .container .explain .right .btn-area .arrow{
+    position: relative;
+    overflow: hidden;
+    width: 37px;
+    height: 16px;
+    margin-bottom: .3rem;
+    /* transform: translateX(-2rem); */
+    background: url(../img/ico_btn_basic_arrow.svg) no-repeat left bottom / 100% 100%;
+    z-index: -1;
+    transition: all .2s;
+}
+
+/* 서브메뉴 */
+.sub-menu-wrap{
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 160px;
+    background: rgba(220, 220, 220, 0.7);
+    
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0;
+
+    transition: 0.5s;
+}
+.sub-menu-wrap.active{
+    z-index:99;
+    opacity: 1;
+}
+.sub-menu-fix{
+    float: right;
+    
+    /* width: 1600px; */
+
+}
+.sub-menu{
+    display: flex;
+    justify-content: center;
+    gap: 53px;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #727271;
+}
+.sub-menu ul li{
+    margin-bottom: 8px;
+}
+.sub-menu ul li a:hover{
+    color: #0D1633;
+}
+/* sec-2 */
+.sec-2 .container{
+    margin-top: 120px;
+    padding: 0px 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sec-2 .style-main{
+    width: 100%;
+    height: 825px;
+    background: url(../img/maincontentbg.svg) no-repeat center;
+    background-size: contain;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes bgChange {
+    25%{
+    background-image: url(../img/style-bg2.svg);
+    background-size: contain;
+    }
+    75%{
+    background-image: url(../img/style-bg3.svg);
+    background-size: contain;
+    }
+}
+
+.sec-2:hover .main-con1{
+    animation: change1 3000ms linear infinite forwards;
+} 
+.sec-2:hover .main-con2{
+    animation: change2 3000ms linear infinite forwards;
+}
+.sec-2:hover .main-con3{
+    animation: change3 3000ms linear infinite forwards;
+}
+.sec-2:hover .style-main{
+    animation: bgChange 300ms linear infinite forwards;
+}
+
+.sec-2 .style-main .main-con1{
+    width: 365px;
+    height: 525px;
+    background: url(../img/con-1-1.jpg) no-repeat center;
+    background-size: cover;
+    transform: rotate(-3deg) translate(5%);
+}
+@keyframes change1 {
+    25%{
+    content: url(../img/con-1-2.jpg);
+    }
+    75%{
+    content: url(../img/con-1-3.jpg);
+    }
+}
+.sec-2 .style-main .main-con2{
+    width: 490px;
+    height: 690px;
+    background: url(../img/con-2-1.jpg) no-repeat center;
+    background-size: cover;
+    transform: rotate(7deg);
+}
+@keyframes change2 {
+    25%{
+    content: url(../img/con-2-2.jpg);
+    }
+    75%{
+    content: url(../img/con-2-3.jpg);
+    }
+}
+.sec-2 .style-main .main-con3{
+    width: 425px;
+    height: 610px;
+    background: url(../img/con-3-1.jpg) no-repeat center;
+    background-size: cover;
+    transform: rotate(10deg) translate(-5%);
+}
+@keyframes change3 {
+    25%{
+    content: url(../img/con-3-2.jpg);
+    }
+    75%{
+    content: url(../img/con-3-3.jpg);
+    }
+}
+
+/* sec-3 */
+.sec-3{
+    margin-top: 120px;
+    padding: 0px 160px;
+}
+.sec-3 .container .head-txt{
+    font-size: 3.75rem;
+    text-align: center;
+    color: #191919;
+}
+.sec-3 .container .artist-wrap{
+    margin-top: 80px;
+}
+.sec-3 .container .artist-wrap .artist-list{
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+}
+.sec-3 .container .artist-wrap .artist-list li{
+    width: calc(25% - 20px);
+    margin: 0px 10px 20px;
+    /* margin-right: 20px; */
+    position: relative;
+}
+.sec-3 .container .artist-wrap .artist-list li .img-box{
+    width: 100%;
+    height: auto;
+
+    cursor: pointer;
+}
+.sec-3 .container .artist-wrap .artist-list li .img-box img{
+    width: 100%;
+    height: auto;
+    filter: grayscale(1);
+
+    transition: 0.3s;
+}
+.sec-3 .container .artist-wrap .artist-list li .img-box img:hover{
+    filter: grayscale(0);
+}
+.sec-3 .container .artist-wrap .artist-list li .txt-box{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+.sec-3 .container .artist-wrap .artist-list li .txt-box .txt-en{
+    font-size: 1.5rem;
+    color: #fff;
+}
+.sec-3 .container .artist-wrap .artist-list li .txt-box .txt-ko{
+    font-size: 1rem;
+    color: #fff;
+}
+
+
+/* sec-4 */
+.sec-4{
+    margin-top: 160px;
+}
+.sec-4 .fullcontainer{
+    width: 100%;
+}
+.sec-4 .container .head-txt{
+    font-size: 3.75rem;
+    text-align: center;
+    color: #191919;
+}
+.sec-4 .left-body{
+    width: 100%;
+    
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+.sec-4 .left-body .left-txtarea{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 1600px;
+    transform: translate(-50%, -50%);
+}
+.sec-4 .left-body .left-txtarea div{
+    text-align: right;
+    width: 100%;
+    max-width: 400px;
+}
+.sec-4 .left-body .left-txtarea div h3{
+    font-size: 1.88rem;
+    color: #444444;
+
+    line-height: 1.5;
+}
+.sec-4 .left-body .left-txtarea div h4{
+    font-size: 2.5rem;
+    color: #444444;
+
+    margin-bottom: 100px;
+}
+.sec-4 .left-body .left-txtarea div a{
+    display: inline-block;
+    font-size: 1rem;
+    color: #797979;
+
+    border: 1px solid #797979;
+    border-radius: 20px;
+    padding: 5px 18px;
+
+    transition: 0.3s;
+    
+}
+.sec-4 .left-body .left-txtarea div a:hover{
+    background-color: #191919;
+    color: #fff;
+}
+.sec-4 .left-body .left-swiper{
+    width: calc(55% + 200px);
+    float: right;
+}
+
+.sec-4 .right-body{
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.sec-4 .right-body .right-txtarea{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 1600px;
+    transform: translate(-50%, -50%);
+}
+.sec-4 .right-body .right-txtarea div{
+    float: right;
+    width: 100%;
+    max-width: 400px;
+}
+.sec-4 .right-body .right-txtarea div h3{
+    font-size: 1.88rem;
+    color: #444444;
+
+    line-height: 1.5;
+}
+
+.sec-4 .right-body .right-txtarea div h4{
+    font-size: 2.5rem;
+    color: #444444;
+
+    margin-bottom: 100px;
+}
+
+.sec-4 .right-body .right-txtarea div a{
+    display: inline-block;
+    font-size: 1rem;
+    color: #797979;
+
+    border: 1px solid #797979;
+    border-radius: 20px;
+    padding: 5px 18px;
+
+    transition: 0.3s;
+}
+
+.sec-4 .right-body .right-txtarea div a:hover{
+    background-color: #191919;
+    color: #fff;
+}
+
+.sec-4 .right-body .right-swiper{
+    width: calc(55% + 200px);
+    float: left;
+}
+
+
+/* sec-5 */
+.sec-5{
+    margin-top: 100px;
+}
+.sec-5 .container{
+    position: relative;
+}
+.sec-5 .int-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sec-5 .int-box .int-ko{
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.sec-5 .int-box .int-en{
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* sec-6 */
+.sec-6{
+    margin-top: 80px;
+}
+
+.sec-6 .container{
+    width: 80%;
+}
+
+/* insta */
+
+.sec-insta{
+    margin-top: 100px;
+}
+.sec-insta .insta-container{
+    width: 935px;
+    margin: 0 auto;
+}
+.sec-insta .insta-container .insta-profile{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(24deg,
+    rgba(131,58,180,1) 0%,
+    rgba(253,29,29,1) 49%,
+    rgba(252,176,69,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+.sec-insta .insta-container .insta-profile a{
+    display: flex;
+    width: 172px;
+    height: 172px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.sec-insta .insta-container .insta-info{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.sec-insta .insta-container .insta-info .insta-info_1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.sec-insta .insta-container .insta-info .insta-info_1 p{
+    font-size: 20px;
+    color: #191919;
+}
+.sec-insta .insta-container .insta-info .insta-info_1 span{
+    font-size: 20px;
+    color: #191919;
+    font-weight: 800;
+}
+.sec-insta .insta-container .insta-info .insta-info_2{
+    /* text-align: center; */
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+}
+.sec-insta .insta-container .insta-info .insta-info_2 .badge{
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sec-insta .insta-container .insta-info .insta-info_3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 50%;
+    margin: 0 auto;
+
+    margin-bottom: 32px;
+}
+
+.sec-insta .insta-container .insta-info .insta-info_3 .follow{
+    font-size: 16px;
+    background-color: #05DBF2;
+    color: #fff;
+    padding: 5px 30px;
+
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+.sec-insta .insta-container .insta-info .insta-info_3 .follow:hover{
+    background-color: #000f14;
+}
+
+.sec-insta .insta-container .insta-info .insta-info_3 .msg{
+    font-size: 16px;
+    /* background-color: #05DBF2; */
+    color: #797979;
+    border: 1px solid #797979;
+    padding: 5px 30px;
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+.sec-insta .insta-container .insta-info .insta-info_3 .msg:hover{
+    background-color: #000f14;
+    color: #fff;
+}
+
+.sec-insta .insta-container .insta-highlight{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 35px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #c4c4c4;
+    margin-bottom: 70px;
+}
+.sec-insta .insta-container .insta-highlight .con-box{
+    width: 90px;
+}
+.sec-insta .insta-container .insta-highlight .con-box .con{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 1px solid #c4c4c4;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sec-insta .insta-container .insta-highlight .con-box .con img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.sec-insta .insta-container .insta-highlight .con-box .con-txt{
+    font-weight: 500;
+    text-align: center;
+    color: #313131;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    width: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sec-insta .feed{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sec-insta .feed .con-box{
+    width: calc(33.333% - 6px);
+    margin: 3px;
+    height: 0;
+    padding-bottom: 33.333%;
+    cursor: pointer;
+    position: relative;
+}
+.sec-insta .con-box.feed1{
+    background: url(../img/feed1.jpg);
+    background-size: cover;
+}
+.sec-insta .con-box.feed2{
+    background: url(../img/feed2.jpg);
+    background-size: cover;
+}
+.sec-insta .con-box.feed3{
+    background: url(../img/feed3.jpg) center;
+    background-size: cover;
+}
+.sec-insta .con-box.feed4{
+    background: url(../img/feed4.jpg);
+    background-size: cover;
+}
+.sec-insta .con-box.feed5{
+    background: url(../img/feed5.jpg);
+    background-size: cover;
+}
+.sec-insta .con-box.feed6{
+    background: url(../img/feed6.jpg);
+    background-size: cover;
+}
+.sec-insta .con-box.feed7{
+    background: url(../img/feed7.jpg);
+    background-size: cover;
+}
+.sec-insta .con-box.feed8{
+    background: url(../img/feed8.jpg);
+    background-size: cover;
+}
+.sec-insta .con-box.feed9{
+    background: url(../img/feed9.jpg);
+    background-size: cover;
+}
+
+.sec-insta .feed .con-back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: 0.3s;
+}
+.sec-insta .feed .con-box:hover .con-back{
+    opacity: 1;
+}
+
+.sec-insta .feed .con-back p{
+    color: #fff;
+}
+.sec-insta .feed .like-box{
+    display: flex;
+    align-items: center;
+}
+
+.sec-insta .feed .icon{
+    width: 25px;
+    height: 25px;
+}
+.sec-insta .feed .icon.like{
+    background: url(../img/heart_bold.svg) no-repeat;
+    background-size: cover;
+}
+.sec-insta .feed .icon.coment{
+    background: url(../img/comment_bold.svg) no-repeat;
+    background-size: cover;
+    margin-left: 20px;
+}
+/* footer */
+
+footer{
+    margin-top: 60px;
+    background-color: #000;
+}
+footer .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 40px 0;
+}
+footer .container .menu-list a{
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+footer .container .sns-list{
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 24px;
+}
+footer .container .footer-txt{
+    color: #fff;
+    font-size: 14px;
+    margin-top: 24px;
+}
+footer .container .footer-copy{
+    color: #fff;
+    font-size: 14px;
+    margin-top: 16px;
+}
+
+/* top-btn */
+
+.top-btn{
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    /* cursor: pointer; */
+    background-color: #000;
+    border-radius: 50%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.top-btn a{
+    color: #fff;
+    font-weight: 700;
+}
+
+/* 스크립트 aos,active,탑버튼 이후 반응형 작업하기 서브메뉴 고민해보기*/
+/* figma 모바일 하기 */
+/* header active정리 */
+
+/* 서브메뉴 모바일메뉴 정리 */
+
+/* 1400 = 반응형 */
+@media (max-width : 1600px){
+    .sec-2 .style-main .main-con1{
+        width: 305px;
+        height: 437px;
+    }
+    .sec-2 .style-main .main-con2{
+        width: 403px;
+        height: 576px;
+    }
+    .sec-2 .style-main .main-con3{
+        width: 354px;
+        height: 510px;
+    }
+}
+
+@media (max-width:1420px){
+    .header-area{
+        padding: 0px 100px;
+    }
+    .sub-menu-wrap{
+        padding: 60px 100px;
+    }
+    .sec-1 .container{
+        margin-top: 100px;
+        padding: 0px 100px;
+    }
+    .sec-2 .container{
+        margin-top: 100px;
+        padding: 0px 100px;
+    }
+    .sec-2 .style-main .main-con1{
+        width: 270px;
+        height: 387px;
+    }
+    .sec-2 .style-main .main-con2{
+        width: 357px;
+        height: 510px;
+    }
+    .sec-2 .style-main .main-con3{
+        width: 314px;
+        height: 451px;
+    }
+    .sec-3{
+        margin-top: 80px;
+        padding: 0px 100px;
+    }
+    .sec-4 .left-body .left-txtarea div{
+        max-width:360px;
+    }
+    .sec-4 .right-body .right-txtarea div{
+        max-width:360px;
+    }
+}
+
+
+@media (max-width:1290px){
+    .banner .banner-txt .b-txt{
+        font-size: 5.2rem;
+    }
+    .sec-1 .container .title-txt h2{
+        font-size: 6.25rem;
+    }
+    .sec-1 .container .explain .left h3{
+        font-size: 50px;
+    }
+    .sec-1 .container .explain .right{
+        margin-top: 45px;
+    }
+    .sec-1 .container .explain .right .txt{
+        font-size: 1.13rem;
+    }
+    .sec-1 .container .explain{
+        margin-top: 60px;
+    }
+    .sec-1 .container .explain .right .mt-txt{
+        margin-top: 30px;
+    }
+    .sec-1 .container .explain .right .btn-area h3{
+        font-size: 1.7rem;
+    }
+    .sec-1 .container .explain .right .btn-area{
+        margin-top: 30px;
+    }
+    .sec-2 .container{
+        margin-top: 40px;
+    }
+    .sec-3{
+        margin-top: 40px;
+    }
+    .sec-4{
+        margin-top: 80px;
+    }
+    .sec-4 .left-body .left-txtarea div{
+        max-width: 300px;
+    }
+    .sec-4 .right-body .right-txtarea div{
+        max-width: 300px;
+    }
+    .sec-6{
+        margin-top: 60px;
+    }
+}
+
+@media (max-width:1200px){
+    /* 이미지크기 */
+    .sec-2 .style-main{
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+    }
+    .sec-2 .style-main .main-con1{
+        width: 223px;
+        height: 320px;
+    }
+    .sec-2 .style-main .main-con2{
+        width: 295px;
+        height: 422px;
+    }
+    .sec-2 .style-main .main-con3{
+        width: 260px;
+        height: 373px;
+    }
+}
+@media (max-width:1150px){
+    .sec-4 .left-body .left-txtarea div{
+        max-width: 230px;
+    }
+    .sec-4 .right-body .right-txtarea div{
+        max-width: 230px;
+    }
+}
+@media (max-width:1100px){
+    /* 모델3개로 */
+    .sec-3 .container .artist-wrap .artist-list li{
+        width: calc(33% - 18px);
+    }
+}
+@media (max-width:1045px){
+    .sec-1 .container .explain .right .txt{
+        font-size: 1rem;
+    }
+    .sec-1 .container .explain .left h3{
+        font-size: 48px;
+    }
+}
+
+@media (max-width:1000px){
+    /* 햄버거버튼 */
+    .header-menu{
+        display: none;
+    }
+    #hamburger{
+        display: block;
+        width: 30px;
+        height: 20px;
+        /* background-color: lightblue; */
+        z-index: 99999;
+        position: absolute;
+        right: 60px;
+    }
+    #hamburger span{    
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+    }
+    #hamburger span:nth-child(1){
+        left: 0;
+        top: 0;
+    }
+    #hamburger span:nth-child(2){
+        left: 0;
+        top: 50%;
+    }
+    #hamburger span:nth-child(3){
+        left: 0;
+        top: 100%;
+    }
+    #hamburger span.on{
+        background-color: #000
+    }
+    #hamburger.active span:nth-child(1){
+        top: 50%;
+        transform: rotate(45deg);
+        background-color: #000;
+    }
+    
+    #hamburger.active span:nth-child(2){
+        opacity: 0;
+    }
+    #hamburger.active span:nth-child(3){
+        top: 50%;
+        transform: rotate(-45deg);
+        background-color: #000;
+    }
+    .sidebar{
+        display: block;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.9);
+        position: fixed;
+        right: -500px;
+        top: 0;
+        transition: 0.5s;
+        padding: 20% 25% 0 9%;
+        z-index:1;
+        transition:0.2s ease-in-out;
+    }
+    .sidebar.on{
+        right: 0;
+    }
+    .sidebar ul{
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar ul li{
+        color: #222;
+        font-size: 30PX;
+        margin-bottom: 38px;
+        font-weight: 600;
+    }
+    /* .header-area{} */
+    .sec-1 .container{
+        margin-top: 40px;
+    }
+    .sec-1 .container .explain{
+        display: block;
+    }
+    .sec-2 .style-main .main-con3{
+        display: none;
+    }
+    .sec-3 .container .artist-wrap{
+        margin-top: 40px;
+    }
+    .sec-4{
+        margin-top: 40px;
+    }
+    .sec-4 .left-body{
+        margin-top: 40px;
+    }
+    .sec-4 .left-body .left-txtarea{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translate(0,0);
+        margin-bottom: 30px;
+    }
+    .sec-4 .left-body .left-txtarea div{
+        text-align: center;
+        margin: 0 auto;
+    }
+    .sec-4 .container .head-txt{
+        font-size: 3.13rem;
+    }
+    .sec-4 .left-body .left-txtarea div h3{
+        font-size: 1.88rem;
+    }
+    .sec-4 .left-body .left-txtarea div h4{
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+    .sec-4 .left-body .left-swiper{
+        width: 100%;
+    }
+    .sec-4 .right-body .right-txtarea{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translate(0,0);
+        margin-bottom: 30px;
+    }
+    .sec-4 .right-body .right-txtarea div{
+        text-align: center;
+        margin: 0 auto;
+        float: inherit;
+    }
+    .sec-4 .right-body .right-txtarea div h3{
+        font-size: 1.88rem;
+    }
+    .sec-4 .right-body .right-txtarea div h4{
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+    .sec-4 .right-body .right-swiper{
+        width: 100%;
+    }
+    .sec-5{
+        margin-top: 50px;
+    }
+}
+
+
+@media (max-width:930px){
+    .sec-1 .container .title-txt h2{
+        font-size: 4.7rem;
+    }
+    .sec-insta .insta-container{
+        width: 760px;
+    }
+    .sec-insta .insta-container .insta-info .insta-info_3{
+        width:60%;
+    }
+}
+@media (max-width:870px){
+    /* 모델2개 */
+    .sec-3 .container .artist-wrap .artist-list li{
+        width: calc(50% - 16px);
+        margin: 0px 8px 16px;
+    }
+    .sec-5 .int-box .int-ko{
+        font-size: 1.13rem;
+    }
+    .sec-5 .int-box .int-en{
+        font-size: 1.13rem;
+    }
+    .sec-2 .style-main .main-con1{
+        width: 162px;
+        height: 232px;
+    }
+    .sec-2 .style-main .main-con2{
+        width: 214px;
+        height: 305px;
+    }
+}
+@media (max-width:769px){
+    /* 16px */
+    .banner .banner-txt .b-txt{
+        display: none;
+    }
+    .header-area{
+        padding: 0 16px;
+    }
+    #hamburger{
+        right: 16px;
+    }
+    .sec-1 .container{
+        margin-top: 24px;
+        padding: 0px 16px;
+    }
+    .sec-1 .container .explain{
+        margin-top: 32px;
+    }
+    .sec-2 .style-main{
+        background: url(../img/m-style-bg.svg) no-repeat center;
+        background-size: contain;
+        width: 420px;
+        height: 685px;
+        margin-top: 0;
+    }
+    .sec-2:hover .style-main{
+        animation: none;
+    }
+    .sec-2 .style-main .main-con1{
+        width: 250px;
+        height: 360px;
+        transform: rotate(7deg) translateX(20%) translateY(-20%);
+        /* opacity: 0.9; */
+    }
+    .sec-2 .style-main .main-con2{
+        width: 250px;
+        height: 360px;
+        transform: rotate(-5deg) translateX(-20%) translateY(30%);
+    }
+    .sec-3{
+        margin-top: 24px;
+    }
+    /* .sec-3 .container .head-txt{
+        font-size: 2.5rem;
+    } */
+    .sec-3{
+        padding: 0 16px;
+    }
+    .sec-4{
+        margin-top: 24px;
+    }
+    /* .sec-4 .container .head-txt{
+        font-size: 2.5rem;
+    } */
+    .sec-insta .insta-container{
+        width: 100%;
+    }
+    .sec-insta .insta-container .insta-info .insta-info_3{
+        width: 75%;
+    }
+}
+
+@media (max-width:600px){
+    .header-area .header-logo{
+        width: 130px;
+        height: 52px;
+    }
+    .sec-1 .container .title-txt h2{
+        font-size: 60px;
+    }
+    .sec-1 .container .explain{
+        margin-top: 40px;
+    }
+    .sec-1 .container .explain .left h3{
+        font-size: 38px;
+    }
+    .sec-1 .container .explain .right{
+        margin-top: 16px;
+    }
+    .sec-1 .container .explain .right .txt{
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    .sec-1 .container .explain .right .btn-area{
+        margin-top: 12px;
+    }
+    .sec-1 .container .explain .right .btn-area h3{
+        font-size: 16px;
+    }
+    .sec-1 .container .explain .right .btn-area .arrow{
+        width: 26px;
+        height: 12px;
+    }
+    .sec-2 .style-main{
+        width: 320px;
+        height: 585px;
+    }
+    .sec-2 .style-main .main-con1{
+        width: 220px;
+        height: 310px;
+    }
+    .sec-2 .style-main .main-con2{
+        width: 220px;
+        height: 310px;
+    }
+    .sec-3 .container .head-txt{
+        font-size: 40px;
+    }
+    .sec-4 .container .head-txt{
+        font-size: 40px;
+    }
+    .sec-4 .left-body .left-txtarea div h3{
+        font-size: 20px;
+    }
+    .sec-4 .left-body .left-txtarea div h4{
+        font-size: 16px;
+        margin-bottom:16px;
+    }
+    .sec-4 .right-body .right-txtarea div h3{
+        font-size: 20px;
+    }
+    .sec-4 .right-body .right-txtarea div h4{
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+    .sec-insta .insta-container .insta-profile{
+        width: 130px;
+        height: 130px;
+    }
+    .sec-insta .insta-container .insta-profile a{
+        width: 122px;
+        height: 122px;
+    }
+    .sec-insta .insta-container .insta-info{
+        width: 65%;
+    }
+    .sec-insta .insta-container .insta-info .insta-info_1 p{
+        font-size: 16px;
+    }
+    .sec-insta .insta-container .insta-info .insta-info_1 span{
+        font-size: 16px;
+    }
+    .sec-insta .insta-container .insta-info .insta-info_2{
+        font-size: 16px;
+    }
+    .sec-insta .insta-container .insta-info .insta-info_3{
+        margin-bottom: 16px;
+    }
+    .sec-insta .insta-container .insta-info .insta-info_3{
+        width: 80%;
+    }
+    .sec-insta .insta-container .insta-highlight .con-box .con{
+        width: 50px;
+        height: 50px;
+    }
+    .sec-insta .insta-container .insta-highlight .con-box .con img{
+        width: 50px;
+        height: 50px;
+    }
+    .sec-insta .insta-container .insta-highlight .con-box{
+        width: auto;
+    }
+    .sec-insta .insta-container .insta-highlight .con-box .con-txt{
+        font-size: 10px;
+    }
+    .sec-insta .insta-container .insta-highlight{
+        margin-bottom: 30px;
+    }
+    footer .container .menu-list a{
+        font-size: 30px;
+    }
+    .sec-5 .int-box .int-ko{
+        font-size: 1rem;
+    }
+    .sec-5 .int-box .int-en{
+        font-size: 1rem;
+    }
+}
+
